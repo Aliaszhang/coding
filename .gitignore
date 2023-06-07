@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.vscode
+stm32h743_oled/DebugConfig
+stm32h743_oled/Listings
+stm32h743_oled/Objects
+*.scvd
+*.ddd
+JLinklog.txt
+JLinkSettings.ini

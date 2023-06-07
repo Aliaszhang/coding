@@ -1,0 +1,18 @@
+--cpu Cortex-M7.fp.dp
+".\objects\startup_stm32h743xx.o"
+".\objects\exti.o"
+".\objects\key.o"
+".\objects\led.o"
+".\objects\oled.o"
+".\objects\timer.o"
+".\objects\tpad.o"
+".\objects\wdg.o"
+".\objects\spi.o"
+".\objects\delay.o"
+".\objects\sys.o"
+".\objects\usart.o"
+".\objects\main.o"
+--strict --scatter ".\Objects\stm32h743_oled.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\stm32h743_oled.map" -o .\Objects\stm32h743_oled.axf

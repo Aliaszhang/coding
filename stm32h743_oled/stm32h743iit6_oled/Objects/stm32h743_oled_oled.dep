@@ -1,0 +1,142 @@
+Dependencies for Project 'stm32h743_oled', Target 'oled': (DO NOT MODIFY !)
+CompilerVersion: 5060422::V5.06 update 4 (build 422)::ARMCC
+F (.\startup_stm32h743xx.s)(0x5B248B97)(--cpu Cortex-M7.fp.dp -g --apcs=interwork -IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 537" --pd "STM32H743xx SETA 1"--list .\listings\startup_stm32h743xx.lst --xref -o .\objects\startup_stm32h743xx.o --depend .\objects\startup_stm32h743xx.d)
+F (.\user\HARDWARE\exti.c)(0x5B17ED94)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\exti.o --omf_browse .\objects\exti.crf --depend .\objects\exti.d)
+I (user\HARDWARE\exti.h)(0x5B17E9A5)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\delay.h)(0x5B17D3D1)
+I (user\HARDWARE\led.h)(0x5B17F172)
+I (user\HARDWARE\key.h)(0x5B17F172)
+F (.\user\HARDWARE\key.c)(0x5B17F172)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\key.o --omf_browse .\objects\key.crf --depend .\objects\key.d)
+I (user\HARDWARE\key.h)(0x5B17F172)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\delay.h)(0x5B17D3D1)
+F (.\user\HARDWARE\led.c)(0x5B1A4B92)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\led.o --omf_browse .\objects\led.crf --depend .\objects\led.d)
+I (user\HARDWARE\led.h)(0x5B17F172)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+F (.\user\HARDWARE\oled.c)(0x64804F7B)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\oled.o --omf_browse .\objects\oled.crf --depend .\objects\oled.d)
+I (user\HARDWARE\oled.h)(0x64804974)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (user\HARDWARE\oledfont.h)(0x64804F7B)
+I (.\user\SYSTEM\delay.h)(0x5B17D3D1)
+I (user\HARDWARE\spi.h)(0x5B4DFBA4)
+F (.\user\HARDWARE\timer.c)(0x5B83C5E6)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
+I (user\HARDWARE\timer.h)(0x5B18BA7D)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (user\HARDWARE\led.h)(0x5B17F172)
+F (.\user\HARDWARE\tpad.c)(0x5B1A4DF1)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\tpad.o --omf_browse .\objects\tpad.crf --depend .\objects\tpad.d)
+I (user\HARDWARE\tpad.h)(0x5B18CD4C)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (user\HARDWARE\timer.h)(0x5B18BA7D)
+I (.\user\SYSTEM\delay.h)(0x5B17D3D1)
+I (.\user\SYSTEM\usart.h)(0x5B768AEA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+F (.\user\HARDWARE\wdg.c)(0x5B17F948)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\wdg.o --omf_browse .\objects\wdg.crf --depend .\objects\wdg.d)
+I (user\HARDWARE\wdg.h)(0x5B17F2B5)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (user\HARDWARE\led.h)(0x5B17F172)
+F (.\user\HARDWARE\spi.c)(0x64802152)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\spi.o --omf_browse .\objects\spi.crf --depend .\objects\spi.d)
+I (user\HARDWARE\spi.h)(0x5B4DFBA4)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+F (.\user\SYSTEM\delay.c)(0x5B17DD47)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\delay.o --omf_browse .\objects\delay.crf --depend .\objects\delay.d)
+I (user\SYSTEM\delay.h)(0x5B17D3D1)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+F (.\user\SYSTEM\sys.c)(0x5BE54FD7)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\sys.o --omf_browse .\objects\sys.crf --depend .\objects\sys.d)
+I (user\SYSTEM\sys.h)(0x5B742FD5)
+I (user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+F (.\user\SYSTEM\usart.c)(0x5B768AEA)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\usart.o --omf_browse .\objects\usart.crf --depend .\objects\usart.d)
+I (user\SYSTEM\sys.h)(0x5B742FD5)
+I (user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (user\SYSTEM\usart.h)(0x5B768AEA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+F (.\main.c)(0x6480524D)(--c99 --gnu -c --cpu Cortex-M7.fp.dp -g -O0 --apcs=interwork --split_sections -I .\user\HARDWARE -I .\user\SYSTEM-IC:\Users\ddd\AppData\Local\Arm\Packs\Keil\STM32H7xx_DFP\3.0.0\Drivers\CMSIS\Device\ST\STM32H7xx\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="537" -DSTM32H743xx -DSTM32H743xx-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (.\user\SYSTEM\sys.h)(0x5B742FD5)
+I (.\user\SYSTEM\stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\stm32h743xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\core_cm7.h)(0x5A4CE8F9)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x63C609AA)
+I (.\user\SYSTEM\cmsis_compiler.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\cmsis_armcc.h)(0x5A4CE8F9)
+I (.\user\SYSTEM\system_stm32h7xx.h)(0x5A4CE934)
+I (.\user\SYSTEM\delay.h)(0x5B17D3D1)
+I (.\user\HARDWARE\led.h)(0x5B17F172)
+I (.\user\SYSTEM\usart.h)(0x5B768AEA)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (.\user\HARDWARE\oled.h)(0x64804974)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
