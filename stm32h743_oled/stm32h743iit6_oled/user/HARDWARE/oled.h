@@ -22,7 +22,7 @@
 		    						  
 //-----------------OLED¶Ë¿Ú¶¨Òå----------------  					   
 #define OLED_CS(x) 		GPIO_Pin_Set(GPIOG,PIN10,x)	 
-#define OLED_RST(x)  	GPIO_Pin_Set(GPIOC,PIN13,x) 
+#define OLED_RST(x)  	GPIO_Pin_Set(GPIOA,PIN14,x) 
 #define OLED_DC(x) 		GPIO_Pin_Set(GPIOA,PIN13,x)	// DC 
 		     
 #define OLED_CMD  	0		//Ð´ÃüÁî
