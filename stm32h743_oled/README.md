@@ -10,7 +10,7 @@
    spi2(PB13/PB14/PB15)
    CS - PG10
    DC - PA13
-   RST - PC13
+   RST - PA14
    3.3V供电
 
 3. 代码用的是正点原子的代码
