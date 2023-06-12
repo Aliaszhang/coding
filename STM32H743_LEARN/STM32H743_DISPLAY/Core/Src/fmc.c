@@ -49,11 +49,14 @@ void SDRAM_Initialization_Sequence(SDRAM_HandleTypeDef *hsdram)
   HAL_Delay(500);
 	SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_PALL,1,0);
   SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_AUTOREFRESH_MODE,8,0);
-  temp=(uint32_t)SDRAM_MODEREG_BURST_LENGTH_1 |	SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | SDRAM_MODEREG_CAS_LATENCY_2 |
-              SDRAM_MODEREG_OPERATING_MODE_STANDARD |  SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
+  temp=(uint32_t)SDRAM_MODEREG_BURST_LENGTH_1 |	\
+                 SDRAM_MODEREG_BURST_TYPE_SEQUENTIAL | \
+                 SDRAM_MODEREG_CAS_LATENCY_2 | \
+                 SDRAM_MODEREG_OPERATING_MODE_STANDARD | \
+                 SDRAM_MODEREG_WRITEBURST_MODE_SINGLE;
   SDRAM_Send_Cmd(0,FMC_SDRAM_CMD_LOAD_MODE,1,temp);
 
-	HAL_SDRAM_ProgramRefreshRate(hsdram,677);	
+	HAL_SDRAM_ProgramRefreshRate(hsdram,271);	
 }
 
 void FMC_SDRAM_WriteBuffer(uint8_t *pBuffer, uint32_t WriteAddr, uint32_t n)
@@ -104,7 +107,7 @@ void MX_FMC_Init(void)
   hsdram1.Init.WriteProtection = FMC_SDRAM_WRITE_PROTECTION_DISABLE;
   hsdram1.Init.SDClockPeriod = FMC_SDRAM_CLOCK_PERIOD_2;
   hsdram1.Init.ReadBurst = FMC_SDRAM_RBURST_ENABLE;
-  hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_1;
+  hsdram1.Init.ReadPipeDelay = FMC_SDRAM_RPIPE_DELAY_0;
   /* SdramTiming */
   SdramTiming.LoadToActiveDelay = 2;
   SdramTiming.ExitSelfRefreshDelay = 8;
@@ -135,16 +138,6 @@ static void HAL_FMC_MspInit(void){
     return;
   }
   FMC_Initialized = 1;
-  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
-
-  /** Initializes the peripherals clock
-  */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_FMC;
-    PeriphClkInitStruct.FmcClockSelection = RCC_FMCCLKSOURCE_D1HCLK;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
 
   /* Peripheral clock enable */
   __HAL_RCC_FMC_CLK_ENABLE();
