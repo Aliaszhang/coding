@@ -138,7 +138,6 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
 
     /* USART1 clock enable */
     __HAL_RCC_USART1_CLK_ENABLE();
-
     __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USART1 GPIO Configuration
     PA9     ------> USART1_TX
@@ -173,7 +172,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
     /* USART2 clock enable */
     __HAL_RCC_USART2_CLK_ENABLE();
 
-    __HAL_RCC_GPIOD_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
     /**USART2 GPIO Configuration
     PD5     ------> USART2_TX
     PD6     ------> USART2_RX
