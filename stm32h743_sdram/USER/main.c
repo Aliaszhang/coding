@@ -8,8 +8,8 @@
 
 char key_string[10] = {0};
 uint8_t key_value = 0;
-uint16_t testsram[250000] __attribute__((section(".bss.EXRAM1")));;
-// uint16_t testsram[250000] __attribute__((at(0xC0000000)));
+uint16_t testsram[250000] __attribute__((section(".bss.EXRAM1"))); // AC6
+// uint16_t testsram[250000] __attribute__((at(0xC0000000))); // AC5
 
 
 static void MPU_Config(void);
@@ -81,9 +81,7 @@ int main(void)
     printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
     printf("** Test finished successfully. ** \n\r");
 
-uint32_t ts;
-
-    for(ts = 0; ts < 250000; ts++)
+    for(uint32_t ts = 0; ts < 250000; ts++)
 	{
 		testsram[ts] = ts;
   	}
@@ -133,22 +131,15 @@ static void SystemClock_Config(void)
     HAL_StatusTypeDef ret = HAL_OK;
     
     /*!< Supply configuration update enable */
-    // HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
+    HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
 
     /* The voltage scaling allows optimizing the power consumption when the device is
       clocked below the maximum system frequency, to update the voltage scaling value
       regarding system frequency refer to product datasheet.  */
-//    MODIFY_REG(PWR->CR3,PWR_CR3_SCUEN, 0);
-//    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
 
-//    while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
-    
-  
-	MODIFY_REG(PWR->CR3,PWR_CR3_SCUEN, 0);
-	__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-
-	while ((PWR->D3CR & (PWR_D3CR_VOSRDY)) != PWR_D3CR_VOSRDY) {}
-    
+    while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
+        
     /* Enable HSE Oscillator and activate PLL with HSE as source */
     RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
@@ -207,7 +198,7 @@ static void CPU_CACHE_Enable(void)
     /* Enable D-Cache */
     SCB_EnableDCache();
 
-    SCB->CACR |= 1<<2;
+    // SCB->CACR |= 1<<2;
 }
 
 static void Error_Handler(void)
