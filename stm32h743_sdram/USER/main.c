@@ -2,13 +2,14 @@
 #include "key.h"
 #include "usart.h"
 #include "sdram.h"
-// #include "sys.h"
+#include "lcd.h"
+#include "ltdc.h"
 #include <stdlib.h>
 #include <string.h>
 
 char key_string[10] = {0};
 uint8_t key_value = 0;
-uint16_t testsram[250000] __attribute__((section(".bss.EXRAM1"))); // AC6
+// uint16_t testsram[250000] __attribute__((section(".bss.EXRAM1"))); // AC6
 // uint16_t testsram[250000] __attribute__((at(0xC0000000))); // AC5
 
 
@@ -47,6 +48,9 @@ void fsmc_sdram_test(void)
 
 int main(void)
 {
+    uint8_t x=0;
+  	uint8_t lcd_id[12];
+
     /* Configure the MPU attributes */
     MPU_Config();
 
@@ -74,6 +78,7 @@ int main(void)
     debug_uart_init();
     MX_USART2_UART_Init(9600);
     MX_FMC_SDRAM_Init();
+    LCD_Init();
 
     LED0(0);
     
@@ -81,10 +86,8 @@ int main(void)
     printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
     printf("** Test finished successfully. ** \n\r");
 
-    for(uint32_t ts = 0; ts < 250000; ts++)
-	{
-		testsram[ts] = ts;
-  	}
+	POINT_COLOR=RED; 
+	sprintf((char*)lcd_id,"LCD ID:%04X",lcddev.id);//把读取到的LCD ID放到数组中，用于显示在屏幕上
 
     key_value = 0;
     while(1)
@@ -93,8 +96,31 @@ int main(void)
         if (key_value != 0)
         {
             printf("key %s press...\r\n", key_string);
-            fsmc_sdram_test();
+            // fsmc_sdram_test();
             key_value = 0;
+            switch(x)
+            {
+                case 0:LCD_Clear(WHITE);break;
+                case 1:LCD_Clear(BLACK);break;
+                case 2:LCD_Clear(BLUE);break;
+                case 3:LCD_Clear(RED);break;
+                case 4:LCD_Clear(MAGENTA);break;
+                case 5:LCD_Clear(GREEN);break;
+                case 6:LCD_Clear(CYAN);break; 
+                case 7:LCD_Clear(YELLOW);break;
+                case 8:LCD_Clear(BRRED);break;
+                case 9:LCD_Clear(GRAY);break;
+                case 10:LCD_Clear(LGRAY);break;
+                case 11:LCD_Clear(BROWN);break;
+            }
+            POINT_COLOR=RED;	  
+            LCD_ShowString(10,40,260,32,32,"Alias Zhang"); 	
+            LCD_ShowString(10,80,240,24,24,"LTDC TEST");
+            LCD_ShowString(10,120,240,24,24,"123456");
+            LCD_ShowString(10,160,240,16,16,lcd_id);	      					 
+            LCD_ShowString(10,180,240,12,12,"2023-06-20");	      					 
+            x++;
+            if(x==12)x=0;      
         }
         HAL_Delay(100);
         LED0(0);
@@ -268,6 +294,21 @@ static void MPU_Config(void)
     MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
     MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
     MPU_InitStruct.Number = MPU_REGION_NUMBER2;
+    MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+    MPU_InitStruct.SubRegionDisable = 0x00;
+    MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;
+
+    HAL_MPU_ConfigRegion(&MPU_InitStruct);
+
+    /* Configure the MPU attributes as WT for SDRAM */
+    MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+    MPU_InitStruct.BaseAddress = LCD_ADDRESS_START;
+    MPU_InitStruct.Size = LCD_REGION_SIZE;
+    MPU_InitStruct.AccessPermission = MPU_REGION_FULL_ACCESS;
+    MPU_InitStruct.IsBufferable = MPU_ACCESS_BUFFERABLE;
+    MPU_InitStruct.IsCacheable = MPU_ACCESS_CACHEABLE;
+    MPU_InitStruct.IsShareable = MPU_ACCESS_NOT_SHAREABLE;
+    MPU_InitStruct.Number = LCD_REGION_NUMBER;
     MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
     MPU_InitStruct.SubRegionDisable = 0x00;
     MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_ENABLE;

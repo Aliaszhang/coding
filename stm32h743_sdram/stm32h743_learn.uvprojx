@@ -504,6 +504,21 @@
               <FileType>1</FileType>
               <FilePath>.\HALLIB\Src\stm32h7xx_hal_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32h7xx_hal_dma2d.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HALLIB\Src\stm32h7xx_hal_dma2d.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32h7xx_hal_ltdc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HALLIB\Src\stm32h7xx_hal_ltdc.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32h7xx_hal_ltdc_ex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\HALLIB\Src\stm32h7xx_hal_ltdc_ex.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -548,6 +563,16 @@
               <FileName>sdram.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DRIVER\sdram.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>ltdc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\ltdc.c</FilePath>
             </File>
           </Files>
         </Group>
