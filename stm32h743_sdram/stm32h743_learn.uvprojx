@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32H743xx</Define>
               <Undefine></Undefine>
-              <IncludePath>.\CMSIS;.\DRIVER;.\HALLIB\Inc;.\USER;.\USER\APP</IncludePath>
+              <IncludePath>.\CMSIS;.\DRIVER;.\HALLIB\Inc;.\USER;.\USER\APP;.\DRIVER\TOUCH</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -573,6 +573,26 @@
               <FileName>ltdc.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DRIVER\ltdc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DRIVER/TOUCH</GroupName>
+          <Files>
+            <File>
+              <FileName>ctiic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\TOUCH\ctiic.c</FilePath>
+            </File>
+            <File>
+              <FileName>ft5206.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\TOUCH\ft5206.c</FilePath>
+            </File>
+            <File>
+              <FileName>touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DRIVER\TOUCH\touch.c</FilePath>
             </File>
           </Files>
         </Group>
