@@ -1859,7 +1859,7 @@ void LCD_Init(void)
         FMC_NORSRAM_Extended_Timing_Init(SRAM_Handler.Extended,&FSMC_WriteTim,SRAM_Handler.Init.NSBank,SRAM_Handler.Init.ExtendedMode);
     } 
     printf("----LCD ID:0x%x\r\n", lcddev.id);
-    LCD_Display_Dir(0);		//默认竖屏
+    LCD_Display_Dir(1);		//默认横屏
     LCD_LED(1);				//点亮背光
     LCD_Clear(WHITE);
 }  
@@ -1953,7 +1953,7 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
     else
     {
         incy=-1;
-        delta_y =- delta_y;
+        delta_y = -delta_y;
     }
 
     if( delta_x>delta_y)

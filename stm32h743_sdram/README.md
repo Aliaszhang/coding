@@ -36,4 +36,6 @@ The system Clock is configured as follow :
    Flash Latency(WS)              = 4
 ```
 
+## 代码更新 ##
 
+在这个工程上，增加了正点原子的触摸屏代码，然后，移植了LVGL库和demo，可以正常的显示，效果将就用了。

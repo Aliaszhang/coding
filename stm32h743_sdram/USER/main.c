@@ -4,9 +4,15 @@
 #include "sdram.h"
 #include "lcd.h"
 #include "ltdc.h"
+#include "tim.h"
 #include "touch.h"
 #include <stdlib.h>
 #include <string.h>
+#include "lvgl/lvgl.h"
+#include "lv_examples.h"
+#include "lv_port_disp.h"
+#include "lv_port_indev.h"
+// #include "lv_demo_keypad_encoder.h"
 
 char key_string[10] = {0};
 uint8_t key_value = 0;
@@ -205,6 +211,10 @@ int main(void)
     MX_USART2_UART_Init(9600);
     MX_FMC_SDRAM_Init();
     LCD_Init();
+    TIM3_Init(10-1, 20000-1);
+    lv_init();
+    lv_port_disp_init();
+    lv_port_indev_init();
     tp_dev.init();
 
     LED0(0);
@@ -213,18 +223,24 @@ int main(void)
     printf("\n\r UART Printf Example: retarget the C library printf function to the UART\n\r");
     printf("** Test finished successfully. ** \n\r");
 
-	POINT_COLOR = BLACK; 
-    LCD_ShowString(10,40,260,32,32,"Alias Zhang"); 	
-    LCD_ShowString(10,80,240,24,24,"LTDC TEST");
-    LCD_ShowString(10,120,240,24,24,"123456");
-    LCD_ShowString(10,160,240,12,12,"2023-06-20");
-    delay_us(1500000);
-    Load_Drow_Dialog();    
-    HAL_Delay(1000);
+	// POINT_COLOR = BLACK; 
+    // LCD_ShowString(10,40,260,32,32,"Alias Zhang"); 	
+    // LCD_ShowString(10,80,240,24,24,"LTDC TEST");
+    // LCD_ShowString(10,120,240,24,24,"123456");
+    // LCD_ShowString(10,160,240,12,12,"2023-06-20");
+    // delay_us(1500000);
+    // Load_Drow_Dialog();    
+    // HAL_Delay(1000);
 
     key_value = 0;
+
+    // lv_demo_keypad_encoder();
+    lv_demo_benchmark();
+    
     while(1)
     {
+        lv_task_handler();
+#if 0
         tp_dev.scan(0);
         for (t = 0; t < 5; t++)
         {
@@ -252,7 +268,7 @@ int main(void)
             {
                 lastpos[t][0]=0XFFFF;
             }
-        }
+        }       
 
         if (key_value != 0)
         {
@@ -319,6 +335,7 @@ int main(void)
         {
             LED0_Toggle;
         }
+#endif
     }
 }
 
