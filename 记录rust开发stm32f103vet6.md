@@ -1,3 +1,4 @@
+# 1. 初体验
 ## 1. 网上找了很多资料和文章，最后还是参考了这篇文章
 
 [小哥说的很清楚](https://jonathanklimt.de/electronics/programming/embedded-rust/rust-on-stm32-2/)
@@ -155,4 +156,91 @@ note: to see what the problems were, use the option `--future-incompat-report`, 
 - J-Flash 创建工程并打开烧录即可
 
 ## 5. 缺点：不能在线调试。
+
+# 2. 修改使用最新的crate
+
+## 1. 修改`Cargo.toml`
+
+```
+[package]
+name = "rusty-blink"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.release]
+opt-level = 3   # turn on maximum optimizations. We only have 64kB
+lto = true      # Link-time-optimizations for further size reduction
+
+[dependencies]
+cortex-m = "0.7.7"      # Access to the generic ARM peripherals
+cortex-m-rt = "0.7.4"  # Startup code for the ARM Core
+embedded-hal = "1.0.0"  # Access to generic embedded functions (`set_high`)
+panic-halt = "^0.2.0"    # Panic handler
+
+# Access to the stm32f103 HAL.
+[dependencies.stm32f1xx-hal]
+# 野火指南者F103 contains a 512kB flash variant which is called "high density"
+features = ["stm32f103", "rt", "high"]
+version = "0.10.0"
+```
+
+## 2. 修改代码`main.rs`
+
+```
+
+// std and main are not available for bare metal software
+#![no_std]
+#![no_main]
+
+use cortex_m_rt::entry; // The runtime
+use stm32f1xx_hal::{pac, prelude::*}; // STM32F1 specific functions
+#[allow(unused_imports)]
+use panic_halt; // When a panic occurs, stop the microcontroller
+
+// This marks the entrypoint of our application. The cortex_m_rt creates some
+// startup code before this, but we don't need to worry about this
+#[entry]
+fn main() -> ! {
+    let dp = pac::Peripherals::take().unwrap();
+    let cp = cortex_m::Peripherals::take().unwrap();
+
+    let rcc = dp.RCC.constrain();
+    let mut gpiob = dp.GPIOB.split();
+    let mut led_red = gpiob.pb5.into_push_pull_output(&mut gpiob.crl);
+    let mut led_green = gpiob.pb0.into_push_pull_output(&mut gpiob.crl);
+    let mut led_blue = gpiob.pb1.into_push_pull_output(&mut gpiob.crl);
+    let mut flash = dp.FLASH.constrain();
+    let clocks = rcc.cfgr.freeze(&mut flash.acr);
+    let mut delay = cp.SYST.delay(&clocks);
+    
+    // Now, enjoy the lightshow!
+    loop {
+        led_red.set_high();
+        led_green.set_high();
+        led_blue.set_low();
+        delay.delay_ms(500_u16);
+        led_red.set_low();
+        led_green.set_high();
+        led_blue.set_high();
+        delay.delay(1.secs());
+        led_red.set_high();
+        led_green.set_low();
+        led_blue.set_high();
+        delay.delay_ms(500_u16);
+    }
+}
+```
+
+## 3. 如何查找需要使用的接口
+
+- 打开 [doc.rs](https://docs.rs/)
+- 搜索关键字`stm32f1xx-hal`
+- 打开`Crate stm32f1xx_hal`
+- 找到`Usage examples`,点击`See the examples folder.`转到GitHub上。
+- 选择对应的库版本即可查看很多参考示例
+
+
+
 
