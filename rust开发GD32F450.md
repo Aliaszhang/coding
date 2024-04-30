@@ -1,16 +1,11 @@
-# 1. 获取 `GD32F4xx.svd`
+# 1. 生成pac库
 
-找到`GD32F4xx.svd`，我本地有keil，开发过对应的C程序，直接找到pack安装路径`C:\Users\xxxxxxxx\AppData\Local\Arm\Packs\GigaDevice\GD32F4xx_DFP\3.0.3\SVD\GD32F4xx.svd`
-
-创建库工程：`cargo new --lib gd32f4xx-pac`
-
-进入工程，删除src：`rm -rf src/`
-
-把`GD32F4xx.svd`拷贝到工程根目录
-
-执行命令：` svd2rust -i GD32F4xx.svd --target=cortex-m`
-
-报错：
+- 找到`GD32F4xx.svd`，我本地有keil，开发过对应的C程序，直接找到pack安装路径`C:\Users\xxxxxxxx\AppData\Local\Arm\Packs\GigaDevice\GD32F4xx_DFP\3.0.3\SVD\GD32F4xx.svd`
+- 创建库工程：`cargo new --lib gd32f4xx-pac`
+- 进入工程，删除src：`rm -rf src/`
+- 把`GD32F4xx.svd`拷贝到工程根目录
+- 执行命令：` svd2rust -i GD32F4xx.svd --target=cortex-m`
+- 报错：
 ```
 [INFO  svd2rust] Parsing device from SVD file
 [ERROR svd2rust] Error parsing SVD XML file
@@ -18,14 +13,15 @@
     Caused by:
         unexpected XML declaration at 1:3
 ```
-用STM32的尝试，一次就通过,证明svd2rust没有问题，那就一定是GD32F4XX.SVD的问题了！
+
+- 用STM32的尝试，一次就通过,证明svd2rust没有问题，那就一定是GD32F4XX.SVD的问题了！
 ```
 $ svd2rust -i STM32F429.svd --target=cortex-m
 [INFO  svd2rust] Parsing device from SVD file
 [INFO  svd2rust] Rendering device
 ```
 
-对比ST和GD，发现开头多了两个空格，删除后报错变成了
+- 对比ST和GD，发现开头多了两个空格，删除后报错变成了
 ```
 [INFO  svd2rust] Parsing device from SVD file
 [ERROR svd2rust] Error parsing SVD XML file
@@ -120,10 +116,18 @@ index 8b99790..356a002 100644
 (END)
 ```
 
-再次执行命令：`svd2rust -i GD32F4xx.svd --target=cortex-m`,编译通过
+- 再次执行命令：`svd2rust -i GD32F4xx.svd --target=cortex-m`,编译通过
 
 ```
 $ svd2rust -i GD32F4xx.svd --target=cortex-m
 [INFO  svd2rust] Parsing device from SVD file
 [INFO  svd2rust] Rendering device
 ```
+
+- 执行命令：`form -i lib.rs -o src/`，会在src目录下生成代码
+- 删除lib.rs
+- 在工程的cargo.toml中指定库的依赖和路径：`gd32f4xx-pac = { path = "./gd32f4xx-pac"}`
+
+  # 2. 新建工程和编写代码
+
+  Todo
