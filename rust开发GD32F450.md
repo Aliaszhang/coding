@@ -131,3 +131,6 @@ $ svd2rust -i GD32F4xx.svd --target=cortex-m
   # 2. 新建工程和编写代码
 
   Todo
+
+  编译参考
+  [cargo-binutils](https://github.com/rust-embedded/cargo-binutils)
