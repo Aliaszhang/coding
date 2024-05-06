@@ -147,7 +147,7 @@ note: to see what the problems were, use the option `--future-incompat-report`, 
 ```
 
 - 考虑生成bin或者hex，用J-Flash烧录
-- ~~给win11安装`Arm GNU Toolchain + Cygwin + Make`~~直接使用[cargo-binutils](https://github.com/rust-embedded/cargo-binutils)提供的方式就可以，不用安装Arm GNU Toolchain
+- ~~给win11安装`Arm GNU Toolchain + Cygwin + Make`~~  直接使用[cargo-binutils](https://github.com/rust-embedded/cargo-binutils)提供的方式就可以，不用安装Arm GNU Toolchain
 [Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads)
 [Cygwin](https://cygwin.com/install.html)
 
